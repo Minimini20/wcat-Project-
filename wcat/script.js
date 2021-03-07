@@ -54,6 +54,17 @@ function wcat(cmds){
         fs.writeFileSync(files[1],data2+"\n"+data);
         return;
     }
+    else if(options.includes("-ws")){
+        let data = fs.readFileSync(files[0],"utf-8");
+        let data2 = data.split("\r\n");
+        let data3 = "";
+        for(i in data2){
+            if(data2[i]!=""){
+                data3+=data2[i]+"\n";
+            }
+        }
+        fs.writeFileSync(files[1],data3);
+    }
 
     let numbering = 1;
 
